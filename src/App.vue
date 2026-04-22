@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1>Physics World Launcher</h1>
+    <HomePage></HomePage>
   </div>
 </template>
 
@@ -12,3 +12,7 @@
   padding: 0;
 }
 </style>
+
+<script setup lang="ts">
+  import HomePage from './HomePage/HomePage.vue'
+</script>
