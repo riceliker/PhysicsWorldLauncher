@@ -41,3 +41,8 @@ __screenshots__/
 # TS
 dist-electron/
 dist/
+
+# asset
+
+assets/logo/Black/
+assets/logo/White/

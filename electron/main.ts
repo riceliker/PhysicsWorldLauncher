@@ -5,8 +5,12 @@ let win: BrowserWindow | null
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 1000,
-    height: 700,
+    width: 1280,
+    height: 720,
+    minWidth: 720,
+    minHeight: 540,
+    resizable: true,
+    frame: true,
     webPreferences: { contextIsolation: true }
   })
 
@@ -15,6 +19,18 @@ function createWindow() {
   } else {
     win.loadFile(path.join(__dirname, '../dist/index.html'))
   }
+
+  // When mouse clicked windows
+  win.on('resize', () => {
+    if (!win || win.isDestroyed()) return;
+    const [width, height] = win.getSize();
+    win.webContents.send('window:resize', { width, height });
+  });
+
+  // When mouse not clicked windows
+  win.on('will-resize', (_, rect) => {
+    const { width, height } = rect;
+  });
 }
 
 app.whenReady().then(createWindow)

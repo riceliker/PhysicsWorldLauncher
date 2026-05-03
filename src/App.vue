@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <HomePage></HomePage>
+    <router-view />
   </div>
 </template>
 
@@ -14,5 +14,5 @@
 </style>
 
 <script setup lang="ts">
-  import HomePage from './HomePage/HomePage.vue'
+  
 </script>
